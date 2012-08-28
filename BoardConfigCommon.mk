@@ -22,6 +22,8 @@ LOCAL_PATH:= $(call my-dir)
 TARGET_GLOBAL_CFLAGS += -mfpu=vfp -mfloat-abi=softfp -Os
 TARGET_GLOBAL_CPPFLAGS += -mfpu=vfp -mfloat-abi=softfp -Os
 
+include vendor/samsung/msm7x27-common/BoardConfigVendor.mk
+
 ## Kernel
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true

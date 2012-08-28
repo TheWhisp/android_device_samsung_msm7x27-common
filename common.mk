@@ -14,7 +14,9 @@
 
 ## GPS configuration
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
-DEVICE_PACKAGE_OVERLAYS += device/samsung/msm7x27-common/overlay
+
+## Device specific overlay
+DEVICE_PACKAGE_OVERLAYS := device/samsung/$(TARGET_DEVICE)/overlay
 
 ## Media
 PRODUCT_PACKAGES += \
@@ -34,11 +36,14 @@ PRODUCT_PACKAGES += \
 
 ## Audio
 PRODUCT_PACKAGES += \
+    audio.primary.$(TARGET_DEVICE) \
+    audio_policy.$(TARGET_DEVICE) \
     audio.a2dp.default \
     libaudioutils
 
 ## Camera
 PRODUCT_PACKAGES += \
+    camera.$(TARGET_DEVICE) \
     libcamera \
     LegacyCamera 
 
