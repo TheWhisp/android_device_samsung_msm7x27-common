@@ -51,7 +51,8 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     brcm_patchram_plus \
     bdaddr_read \
-    setup_fs  
+    setup_fs \
+    FileManager  
 
 ## Vold config
 PRODUCT_COPY_FILES += \
