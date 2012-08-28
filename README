@@ -1,0 +1,22 @@
+Samsung msm7x27-common device source / configuration for building CyanogenMod 10 (Android 4.1.x)
+
+## Currently supports:
+
+* Galaxy Mini (GT-S5570)
+* Galaxy Gio (GT-S5660)
+* Galaxy Ace (GT-S5830)
+* Galaxy Fit (GT-S5670)
+
+## Credits:
+
+People who made this possible:
+
+* TheWhisp
+* rohan007
+* michie
+* hrk
+* erikcas
+* tilal6991
+* KonstaT
+* Maclaw
+* CyanogenMod team
