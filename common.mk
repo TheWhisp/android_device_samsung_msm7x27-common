@@ -15,9 +15,6 @@
 ## GPS configuration
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-## Device specific overlay
-DEVICE_PACKAGE_OVERLAYS := device/samsung/$(TARGET_DEVICE)/overlay
-
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
