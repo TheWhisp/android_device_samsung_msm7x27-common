@@ -36,14 +36,11 @@ PRODUCT_PACKAGES += \
 
 ## Audio
 PRODUCT_PACKAGES += \
-    audio.primary.$(TARGET_DEVICE) \
-    audio_policy.$(TARGET_DEVICE) \
     audio.a2dp.default \
     libaudioutils
 
 ## Camera
 PRODUCT_PACKAGES += \
-    camera.$(TARGET_DEVICE) \
     libcamera \
     LegacyCamera 
 
