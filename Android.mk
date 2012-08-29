@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
+SAMSUNG_TARGETS := tass beni cooper gio
 
-ifeq ($(TARGET_DEVICE),tass)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
+include $(all-subdir-makefiles)
 endif
