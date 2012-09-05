@@ -420,7 +420,7 @@ void
 CameraHAL_FixupParams(android::CameraParameters &settings)
 {
    const char *preview_sizes =
-      "640x480,576x432,480x320,384x288,352x288,320x240,240x160,176x144";
+      "384x288,352x288,320x240,240x160,176x144";
    const char *video_sizes =
       "640x480,352x288,320x240,176x144";
    const char *preferred_size       = "320x240";
