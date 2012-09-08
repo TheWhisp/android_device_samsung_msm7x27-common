@@ -80,7 +80,7 @@ extern "C" {
 // Number of video buffers held by kernal (initially 1,2 &3)
 #define ACTIVE_VIDEO_BUFFERS 3
 
-#if DLOPEN_LIBMMCAMERA
+#if DLOPEN_libcamera
 #include <dlfcn.h>
 
 void* (*LINK_cam_conf)(void *data);
@@ -1194,98 +1194,98 @@ bool QualcommCameraHardware::startCamera()
         ALOGV(" Unable to determine the target type. Camera will not work ");
         return false;
     }
-#if DLOPEN_LIBMMCAMERA
-    libmmcamera = ::dlopen("liboemcamera.so", RTLD_NOW);
-    ALOGV("loading liboemcamera at %p", libmmcamera);
-    if (!libmmcamera) {
+#if DLOPEN_libcamera
+    libcamera = ::dlopen("liboemcamera.so", RTLD_NOW);
+    ALOGV("loading liboemcamera at %p", libcamera);
+    if (!libcamera) {
         ALOGV("FATAL ERROR: could not dlopen liboemcamera.so: %s", dlerror());
         return false;
     }
 
     *(void **)&LINK_cam_frame =
-        ::dlsym(libmmcamera, "cam_frame");
+        ::dlsym(libcamera, "cam_frame");
     *(void **)&LINK_camframe_terminate =
-        ::dlsym(libmmcamera, "camframe_terminate");
+        ::dlsym(libcamera, "camframe_terminate");
 
     *(void **)&LINK_jpeg_encoder_init =
-        ::dlsym(libmmcamera, "jpeg_encoder_init");
+        ::dlsym(libcamera, "jpeg_encoder_init");
 
     *(void **)&LINK_jpeg_encoder_encode =
-        ::dlsym(libmmcamera, "jpeg_encoder_encode");
+        ::dlsym(libcamera, "jpeg_encoder_encode");
 
     *(void **)&LINK_jpeg_encoder_join =
-        ::dlsym(libmmcamera, "jpeg_encoder_join");
+        ::dlsym(libcamera, "jpeg_encoder_join");
 
     *(void **)&LINK_mmcamera_camframe_callback =
-        ::dlsym(libmmcamera, "mmcamera_camframe_callback");
+        ::dlsym(libcamera, "mmcamera_camframe_callback");
 
     *LINK_mmcamera_camframe_callback = receive_camframe_callback;
 
     *(void **)&LINK_mmcamera_jpegfragment_callback =
-        ::dlsym(libmmcamera, "mmcamera_jpegfragment_callback");
+        ::dlsym(libcamera, "mmcamera_jpegfragment_callback");
 
     *LINK_mmcamera_jpegfragment_callback = receive_jpeg_fragment_callback;
 
     *(void **)&LINK_mmcamera_jpeg_callback =
-        ::dlsym(libmmcamera, "mmcamera_jpeg_callback");
+        ::dlsym(libcamera, "mmcamera_jpeg_callback");
 
     *LINK_mmcamera_jpeg_callback = receive_jpeg_callback;
 
     *(void **)&LINK_camframe_timeout_callback =
-        ::dlsym(libmmcamera, "camframe_timeout_callback");
+        ::dlsym(libcamera, "camframe_timeout_callback");
 
     *LINK_camframe_timeout_callback = receive_camframetimeout_callback;
 
-    *(void **)&LINK_cam_frame_flush_free_video = ::dlsym(libmmcamera, "cam_frame_flush_free_video");
+    *(void **)&LINK_cam_frame_flush_free_video = ::dlsym(libcamera, "cam_frame_flush_free_video");
 
-    *(void **)&LINK_camframe_free_video = ::dlsym(libmmcamera, "cam_frame_add_free_video");
+    *(void **)&LINK_camframe_free_video = ::dlsym(libcamera, "cam_frame_add_free_video");
 
-    *(void **)&LINK_camframe_video_callback = ::dlsym(libmmcamera, "mmcamera_camframe_videocallback");
+    *(void **)&LINK_camframe_video_callback = ::dlsym(libcamera, "mmcamera_camframe_videocallback");
         *LINK_camframe_video_callback = receive_camframe_video_callback;
 
     *(void **)&LINK_mmcamera_shutter_callback =
-        ::dlsym(libmmcamera, "mmcamera_shutter_callback");
+        ::dlsym(libcamera, "mmcamera_shutter_callback");
 
     *LINK_mmcamera_shutter_callback = receive_shutter_callback;
 
     *(void**)&LINK_jpeg_encoder_setMainImageQuality =
-        ::dlsym(libmmcamera, "jpeg_encoder_setMainImageQuality");
+        ::dlsym(libcamera, "jpeg_encoder_setMainImageQuality");
 
     *(void**)&LINK_jpeg_encoder_setThumbnailQuality =
-        ::dlsym(libmmcamera, "jpeg_encoder_setThumbnailQuality");
+        ::dlsym(libcamera, "jpeg_encoder_setThumbnailQuality");
 
     *(void**)&LINK_jpeg_encoder_setRotation =
-        ::dlsym(libmmcamera, "jpeg_encoder_setRotation");
+        ::dlsym(libcamera, "jpeg_encoder_setRotation");
 
 /* C3C0 20120503 - doesn't exist in Gio's liboemcamera.so
     *(void**)&LINK_jpeg_encoder_setLocation =
-        ::dlsym(libmmcamera, "jpeg_encoder_setLocation");
+        ::dlsym(libcamera, "jpeg_encoder_setLocation");
 */
 
     *(void **)&LINK_cam_conf =
-        ::dlsym(libmmcamera, "cam_conf");
+        ::dlsym(libcamera, "cam_conf");
 
 /* C3C0 20120503 - doesn't exist in Gio's liboemcamera.so
     *(void **)&LINK_default_sensor_get_snapshot_sizes =
-        ::dlsym(libmmcamera, "default_sensor_get_snapshot_sizes");
+        ::dlsym(libcamera, "default_sensor_get_snapshot_sizes");
 */
 
     *(void **)&LINK_launch_cam_conf_thread =
-        ::dlsym(libmmcamera, "launch_cam_conf_thread");
+        ::dlsym(libcamera, "launch_cam_conf_thread");
 
     *(void **)&LINK_release_cam_conf_thread =
-        ::dlsym(libmmcamera, "release_cam_conf_thread");
+        ::dlsym(libcamera, "release_cam_conf_thread");
 
 /* C3C0 20120503 - doesn't exist in Gio's liboemcamera.so
     *(void **)&LINK_zoom_crop_upscale =
-        ::dlsym(libmmcamera, "zoom_crop_upscale");
+        ::dlsym(libcamera, "zoom_crop_upscale");
 */
 #else
     mmcamera_camframe_callback = receive_camframe_callback;
     mmcamera_jpegfragment_callback = receive_jpeg_fragment_callback;
     mmcamera_jpeg_callback = receive_jpeg_callback;
     mmcamera_shutter_callback = receive_shutter_callback;
-#endif // DLOPEN_LIBMMCAMERA
+#endif // DLOPEN_libcamera
 
     /* The control thread is in libcamera itself. */
     if (pthread_join(w_thread, NULL) != 0) {
@@ -1975,7 +1975,7 @@ void QualcommCameraHardware::runFrameThread(void *data)
 
     int cnt;
 
-#if DLOPEN_LIBMMCAMERA
+#if DLOPEN_libcamera
     // We need to maintain a reference to libqcamera.so for the duration of the
     // frame thread, because we do not know when it will exit relative to the
     // lifetime of this object.  We do not want to dlclose() libqcamera while
@@ -1993,7 +1993,7 @@ void QualcommCameraHardware::runFrameThread(void *data)
 
     mPreviewHeap.clear();
 
-#if DLOPEN_LIBMMCAMERA
+#if DLOPEN_libcamera
     if (libhandle) {
         ::dlclose(libhandle);
         ALOGV("FRAME: dlclose(libqcamera)");
@@ -2443,8 +2443,8 @@ void QualcommCameraHardware::release()
     ALOGD("release E");
     Mutex::Autolock l(&mLock);
 
-#if DLOPEN_LIBMMCAMERA
-    if (libmmcamera == NULL) {
+#if DLOPEN_libcamera
+    if (libcamera == NULL) {
         ALOGV("ERROR: multiple release!");
         return;
     }
@@ -2495,11 +2495,11 @@ void QualcommCameraHardware::release()
         close(fb_fd);
         fb_fd = -1;
     }
-#if DLOPEN_LIBMMCAMERA
-    if (libmmcamera) {
-        ::dlclose(libmmcamera);
+#if DLOPEN_libcamera
+    if (libcamera) {
+        ::dlclose(libcamera);
         ALOGV("dlclose(libqcamera)");
-        libmmcamera = NULL;
+        libcamera = NULL;
     }
 #endif
 
@@ -2701,7 +2701,7 @@ void QualcommCameraHardware::runAutoFocus()
         return;
     }
 
-#if DLOPEN_LIBMMCAMERA
+#if DLOPEN_libcamera
     // We need to maintain a reference to libqcamera.so for the duration of the
     // AF thread, because we do not know when it will exit relative to the
     // lifetime of this object.  We do not want to dlclose() libqcamera while
@@ -2763,7 +2763,7 @@ done:
     if (autoFocusEnabled)
         cb(CAMERA_MSG_FOCUS, status, 0, data);
 
-#if DLOPEN_LIBMMCAMERA
+#if DLOPEN_libcamera
     if (libhandle) {
         ::dlclose(libhandle);
         ALOGV("AF: dlclose(libqcamera)");
@@ -4757,4 +4757,3 @@ status_t QualcommCameraHardware::getBufferInfo(sp<IMemory>& Frame, size_t *align
 }
 
 }; // namespace android
-
