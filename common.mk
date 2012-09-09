@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## GPS configuration
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
@@ -87,17 +84,12 @@ PRODUCT_COPY_FILES += \
 ## Wi-Fi & networking
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/wifi/hostapd.conf:system/etc/wifi/hostapd.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/wifi/dhcpcd.conf:system/etc/wifi/dhcpcd.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/samsung/msm7x27-common/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
 
 ## Media
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/samsung/msm7x27-common/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/samsung/msm7x27-common/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/samsung/msm7x27-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/samsung/msm7x27-common/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/samsung/msm7x27-common/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
@@ -125,9 +117,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so
 
+## Custom GPS config
+PRODUCT_COPY_FILES += \
+    device/samsung/msm7x27-common/prebuilt/etc/gps.conf:system/etc/gps.conf \
+    device/samsung/msm7x27-common/prebuilt/etc/secgps.conf:system/etc/secgps.conf
+
 # LDPI assets
 PRODUCT_LOCALES += en
-PRODUCT_AAPT_CONFIG := normal ldpi mdpi
 
 # Build.prop overrides
 PRODUCT_PROPERTY_OVERRIDES += \
