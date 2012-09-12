@@ -120,7 +120,7 @@ PRODUCT_COPY_FILES += \
 ## ICS Audio blobs
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/lib/hw/audio.primary.msm7x27.so:system/lib/hw/audio.primary.msm7x27.so \
-    device/samsung/msm7x27-common/prebuilt/lib/hw/audio_policy.msm7x27.so:system/lib/hw/audio.policy.msm7x27.so
+    device/samsung/msm7x27-common/prebuilt/lib/hw/audio_policy.msm7x27.so:system/lib/hw/audio_policy.msm7x27.so
 
 ## Custom GPS config
 PRODUCT_COPY_FILES += \
