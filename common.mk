@@ -117,20 +117,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so
 
-## ICS Audio blobs
-PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/lib/hw/audio.primary.msm7x27.so:system/lib/hw/audio.primary.msm7x27.so \
-    device/samsung/msm7x27-common/prebuilt/lib/hw/audio_policy.msm7x27.so:system/lib/hw/audio.policy.msm7x27.so
-
 ## Custom GPS config
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/samsung/msm7x27-common/prebuilt/etc/secgps.conf:system/etc/secgps.conf
 
-## Default locale
+# LDPI assets
 PRODUCT_LOCALES += en
 
-## Build.prop overrides
+# Build.prop overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     hwui.render_dirty_regions=false \
     pm.sleep_mode=1
