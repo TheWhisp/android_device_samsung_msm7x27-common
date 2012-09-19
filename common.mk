@@ -108,6 +108,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
+## Prebuilt init.d scripts
+PRODUCT_COPY_FILES += \
+    device/samsung/msm7x27-common/prebuilt/etc/init.d/01bt:system/etc/init.d/01bt
+
 ## Other
 PRODUCT_LOCALES += en
 PRODUCT_AAPT_CONFIG := ldpi mdpi normal
