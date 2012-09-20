@@ -77,7 +77,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/ramdisk/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
     device/samsung/msm7x27-common/ramdisk/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
     device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko
 
 ## Wi-Fi & networking
 PRODUCT_COPY_FILES += \
