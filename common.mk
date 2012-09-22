@@ -38,7 +38,6 @@ PRODUCT_PACKAGES += \
 
 ## GPS
 PRODUCT_PACKAGES += \
-    gps.tass \
     librpc 
   
 ## Other
