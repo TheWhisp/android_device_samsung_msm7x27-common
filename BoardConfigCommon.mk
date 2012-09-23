@@ -58,7 +58,6 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 ## Qualcomm, display
 BOARD_USES_QCOM_HARDWARE := true
 USE_OPENGL_RENDERER := true
-TARGET_NO_HW_VSYNC := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_EGL_CFG := device/samsung/msm7x27-common/prebuilt/lib/egl/egl.cfg
 BOARD_NEEDS_MEMORYHEAPPMEM := true
@@ -100,10 +99,10 @@ BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
 
-## Touchscreen
+## Support for legacy touch screen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
-## Audio
+## Device specific hardware
 TARGET_PROVIDES_LIBAUDIO := true
 TARGET_PROVIDES_LIBLIGHTS := true
 
