@@ -128,5 +128,52 @@ PRODUCT_AAPT_CONFIG := ldpi mdpi normal
 
 ## Build.prop overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-    hwui.render_dirty_regions=false \
-    pm.sleep_mode=1
+## Graphics
+   ro.opengles.version=131072
+   ro.sf.lcd_density=120
+   video.accelerate.hw=1
+   debug.sf.hw=1
+   persist.sys.use_dithering=2
+## Media
+   media.stagefright.enable-player=true
+   media.stagefright.enable-meta=true
+   media.stagefright.enable-scan=true
+   media.stagefright.enable-http=false
+   media.stagefright.enable-record=true
+## Qualcomm
+   debug.gr.numframebuffers=2
+   debug.qctwa.statusbar=1
+   debug.qctwa.preservebuf=1
+   com.qc.hardware=true
+## View configuration for QVGA.
+   view.fading_edge_length=8
+   view.touch_slop=15
+   view.minimum_fling_velocity=25
+   ro.max.fling_velocity=4000
+   view.scroll_friction=0.008
+## RIL, telephony
+   rild.libpath=/system/lib/libsec-ril.so
+   rild.libargs=-d /dev/smd0
+   ro.ril.gprsclass=10
+   mobiledata.interfaces=pdp0,gprs,ppp0
+   ro.telephony.call_ring.delay=0
+   ro.ril.disable.power.collapse=0
+   DEVICE_PROVISIONED=1
+## Wi-Fi interface
+   wifi.interface=wlan0
+## Dalvik
+   dalvik.vm.lockprof.threshold=500
+   dalvik.vm.dexopt-flags=m=y
+   dalvik.vm.heapstartsize=6m	
+   dalvik.vm.heapgrowthlimit=28m	
+   dalvik.vm.heapsize=64m
+   dalvik.vm.execution-mode=int:jit
+   dalvik.vm.dexopt-data-only=1
+   dalvik.vm.verify_bytecode=false
+   dalvik.vm.checkjni=0
+## USB
+   persist.sys.usb.config=adb,mass_storage
+   persist.service.adb.enable=1
+   ro.vold.umsdirtyratio=20
+## Camcorder
+   debug.camcorder.disablemeta=1
