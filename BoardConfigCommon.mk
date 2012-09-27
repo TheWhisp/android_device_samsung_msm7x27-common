@@ -37,11 +37,14 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm7x27-common/include
 
-## Webkit, browser
-JS_ENGINE := v8
-HTTP := chrome
+## Webkit
 ENABLE_WEBGL := true
 TARGET_WEBKIT_USE_MORE_MEMORY := true
+TARGET_FORCE_CPU_UPLOAD := true
+
+## V8
+JS_ENGINE := v8
+HTTP := chrome
 
 ## JIT
 WITH_JIT := true
@@ -60,6 +63,7 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_GENLOCK := true
 BOARD_EGL_CFG := device/samsung/msm7x27-common/prebuilt/lib/egl/egl.cfg
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+BOARD_USES_QCOM_LIBS := true
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
@@ -68,11 +72,7 @@ COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFER
 
 ## GPS
 BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x27
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
-
-## Other Qualcomm config
-BOARD_USES_QCOM_LIBS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 BOARD_USES_QCOM_LIBRPC := true
 
 ## Bluetooth
@@ -93,6 +93,7 @@ WIFI_DRIVER_MODULE_PATH := /system/wifi/ar6000.ko
 WIFI_DRIVER_MODULE_NAME := ar6000
 
 ## RIL
+TARGET_PROVIDES_LIBRIL := true
 BOARD_USES_LEGACY_RIL := true
 BOARD_FORCE_RILD_AS_ROOT := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
@@ -101,7 +102,7 @@ BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
 
-## Touchscreen
+## Legacy touchscreen support
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 ## Bootanimation
@@ -109,14 +110,17 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
-## Audio
+## Device specific libs
 TARGET_PROVIDES_LIBAUDIO := true
-
-## Misc.
 TARGET_PROVIDES_LIBLIGHTS := true
+
+## Samsung has weird framebuffer
 TARGET_NO_INITLOGO := true
+
+## Fix libcamera crash
 TARGET_DISABLE_ARM_PIE := true
-BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
+
+## Fix colors in panorama mode
 BOARD_CPU_COLOR_CONVERT := true
 
 ## Recovery

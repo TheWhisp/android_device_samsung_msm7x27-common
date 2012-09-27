@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+## GPS configuration
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
@@ -75,7 +78,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/ramdisk/lib/modules/fsr.ko:root/lib/modules/fsr.ko \
     device/samsung/msm7x27-common/ramdisk/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko
+    device/samsung/msm7x27-common/ramdisk/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko
 
 ## Prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
@@ -116,11 +121,6 @@ PRODUCT_COPY_FILES += \
 ## ICS GPS blob
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so
-
-## Custom GPS config
-PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/etc/gps.conf:system/etc/gps.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/secgps.conf:system/etc/secgps.conf
 
 ## Other
 PRODUCT_LOCALES += en
