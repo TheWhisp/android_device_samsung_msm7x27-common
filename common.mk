@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## GPS configuration
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
@@ -118,9 +115,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
-## ICS GPS blob
+## GPS configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so
+    device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/gps.conf:system/etc/gps.conf \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Intermediate_CA_01.der:system/etc/T-Mobile_USA_Intermediate_CA_01.der \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_01.der:system/etc/T-Mobile_USA_Issuer_CA_01.der \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_02.der:system/etc/T-Mobile_USA_Issuer_CA_02.der \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Root_CA.der:system/etc/T-Mobile_USA_Root_CA.der
 
 ## Other
 PRODUCT_LOCALES += en
