@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Intermediate_CA_01.der:system/etc/T-Mobile_USA_Intermediate_CA_01.der \
     device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_01.der:system/etc/T-Mobile_USA_Issuer_CA_01.der \
     device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_02.der:system/etc/T-Mobile_USA_Issuer_CA_02.der \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Root_CA.der:system/etc/T-Mobile_USA_Root_CA.der \
+    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Root_CA.der:system/etc/T-Mobile_USA_Root_CA.der
 
 ## Prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
