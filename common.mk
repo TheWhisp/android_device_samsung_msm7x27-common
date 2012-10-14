@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## GPS configuration
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
