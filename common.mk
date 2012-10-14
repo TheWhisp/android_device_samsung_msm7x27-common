@@ -114,12 +114,7 @@ PRODUCT_COPY_FILES += \
 
 ## GPS configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/gps.conf:system/etc/gps.conf \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Intermediate_CA_01.der:system/etc/T-Mobile_USA_Intermediate_CA_01.der \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_01.der:system/etc/T-Mobile_USA_Issuer_CA_01.der \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Issuer_CA_02.der:system/etc/T-Mobile_USA_Issuer_CA_02.der \
-    device/samsung/msm7x27-common/prebuilt/etc/gps/T-Mobile_USA_Root_CA.der:system/etc/T-Mobile_USA_Root_CA.der
+    device/samsung/msm7x27-common/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 ## Prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
@@ -127,4 +122,4 @@ PRODUCT_COPY_FILES += \
 
 ## Other
 PRODUCT_LOCALES += en
-PRODUCT_AAPT_CONFIG := ldpi mdpi normal
+PRODUCT_AAPT_CONFIG := ldpi mdpi hdpi normal
