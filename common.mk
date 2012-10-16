@@ -34,8 +34,7 @@ PRODUCT_PACKAGES += \
 
 ## Camera
 PRODUCT_PACKAGES += \
-    libcamera \
-    LegacyCamera 
+    libcamera
 
 ## GPS
 PRODUCT_PACKAGES += \
