@@ -28,6 +28,10 @@ cd packages/apps/LegacyCamera
 echo "Applying LegacyCamera patches..."
 git am $rootdirectory/device/samsung/msm7x27-common/patches/packages_apps_LegacyCamera/*.patch
 cd $rootdirectory
+cd packages/apps/Settings
+echo "Applying Settings patches..."
+git am $rootdirectory/device/samsung/msm7x27-common/patches/packages_apps_Settings/*.patch
+cd $rootdirectory
 cd packages/apps/Gallery2
 echo "Applying Gallery2 patches..."
 git am $rootdirectory/device/samsung/msm7x27-common/patches/packages_apps_Gallery2/*.patch
