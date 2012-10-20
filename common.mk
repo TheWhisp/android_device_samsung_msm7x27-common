@@ -47,7 +47,8 @@ PRODUCT_PACKAGES += \
     brcm_patchram_plus \
     bdaddr_read \
     setup_fs \
-    FileManager  
+    FileManager \
+    LiveWallpapersPicker  
 
 ## Vold config
 PRODUCT_COPY_FILES += \
