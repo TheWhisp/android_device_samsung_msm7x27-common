@@ -1,0 +1,63 @@
+From ab8a28390f3a8eff809dbe11b3b1ecb65bd62899 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?D=C4=81vis=20M=C4=81lnieks?= <daavis.90@gmail.com>
+Date: Sat, 20 Oct 2012 21:54:03 +0300
+Subject: [PATCH 3/3] update configs
+
+Change-Id: Iba680cddfa0957cc33034bfea8826ed99b01af2c
+---
+ configs/common.mk       |   14 +++++++-------
+ configs/common_phone.mk |    2 +-
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/configs/common.mk b/configs/common.mk
+index edb77e4..df7df99 100644
+--- a/configs/common.mk
++++ b/configs/common.mk
+@@ -10,16 +10,16 @@ PRODUCT_PACKAGES += \
+     AOKPtips \
+     AppWidgetPicker \
+     LatinImeDictionary \
+-    Microbes \
++#    Microbes \
+     MusicFX \
+-    MusicVisualization \
+-    NoiseField \
++#    MusicVisualization \
++#    NoiseField \
+     openvpn \
+-    PhaseBeam \
++#    PhaseBeam \
+     ROMControl \
+     SuperSU \
+-    SwagPapers \
+-    UnicornPorn
++#    SwagPapers \
++#    UnicornPorn
+ 
+ # Use prebuilt su until fixed when built
+ PRODUCT_COPY_FILES += \
+@@ -37,7 +37,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.kernel.android.checkjni=0
+ 
+ PRODUCT_COPY_FILES += \
+-    vendor/aokp/prebuilt/common/lib/libmicrobes_jni.so:system/lib/libmicrobes_jni.so \
++#    vendor/aokp/prebuilt/common/lib/libmicrobes_jni.so:system/lib/libmicrobes_jni.so \
+     vendor/aokp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
+     vendor/aokp/prebuilt/common/etc/resolv.conf:system/etc/resolv.conf
+ 
+diff --git a/configs/common_phone.mk b/configs/common_phone.mk
+index bf93a37..51b0a9c 100644
+--- a/configs/common_phone.mk
++++ b/configs/common_phone.mk
+@@ -4,7 +4,7 @@ PRODUCT_PACKAGES += \
+     NovaLauncher
+ 
+ # Inherit drm blobs
+--include vendor/aokp/configs/common_drm_phone.mk
++#-include vendor/aokp/configs/common_drm_phone.mk
+ 
+ # BT config
+ PRODUCT_COPY_FILES += \
+-- 
+1.7.10.4
+
