@@ -63,3 +63,8 @@ echo "Applying hardware/ril patches..."
 git am $rootdirectory/device/samsung/msm7x27-common/patches/hardware_ril/*.patch
 echo "Changing to build directory.."
 cd $rootdirectory
+cd packages/apps/Calculator
+echo "Applying packages/apps/Calculator patches..."
+git am $rootdirectory/device/samsung/msm7x27-common/patches/packages_apps_Calculator/*.patch
+echo "Changing to build directory.."
+cd $rootdirectory
