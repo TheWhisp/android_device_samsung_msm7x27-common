@@ -34,7 +34,8 @@ PRODUCT_PACKAGES += \
 
 ## Camera
 PRODUCT_PACKAGES += \
-    libcamera
+    libcamera \
+    camera.gio
 
 ## GPS
 PRODUCT_PACKAGES += \
