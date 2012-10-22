@@ -1,58 +1,44 @@
-From e5873dc2a472f41f6987225bdfbc84030215720f Mon Sep 17 00:00:00 2001
-From: Davis Malnieks <daavis.90@gmail.com>
-Date: Sat, 20 Oct 2012 21:46:54 +0300
-Subject: [PATCH] remove live wallpapers, videoeditor and some other things
+From 4b6f1cbee7bef77b3db3bcf9555e35615563dfe1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?D=C4=81vis=20M=C4=81lnieks?= <daavis.90@gmail.com>
+Date: Mon, 22 Oct 2012 19:29:24 +0300
+Subject: [PATCH] free some space
 
-Change-Id: Ic1c7ca2e01d457d3c199d713033125c1d498ac80
+Change-Id: Iddcf43cc60429d8e3efed590a696f460df5e3ccc
 ---
- target/product/full_base.mk |   32 ++++++++++++++++----------------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+ target/product/full_base.mk |   19 ++-----------------
+ 1 file changed, 2 insertions(+), 17 deletions(-)
 
 diff --git a/target/product/full_base.mk b/target/product/full_base.mk
-index 94fe6d9..c05bf56 100644
+index 94fe6d9..f575730 100644
 --- a/target/product/full_base.mk
 +++ b/target/product/full_base.mk
-@@ -24,25 +24,25 @@ PRODUCT_PACKAGES := \
+@@ -24,25 +24,10 @@ PRODUCT_PACKAGES := \
      libdrmframework \
      libdrmframework_jni \
      libfwdlockengine \
 -    VideoEditor \
-+#    VideoEditor \
      WAPPushManager
  
  PRODUCT_PACKAGES += \
 -    Galaxy4 \
 -    HoloSpiralWallpaper \
 -    LiveWallpapers \
-+#    Galaxy4 \
-+#    HoloSpiralWallpaper \
-+#    LiveWallpapers \
      LiveWallpapersPicker \
 -    MagicSmokeWallpapers \
 -    NoiseField \
 -    PhaseBeam \
 -    VisualizationWallpapers
-+#    MagicSmokeWallpapers \
-+#    NoiseField \
-+#    PhaseBeam \
-+#    VisualizationWallpapers
- 
+-
 -PRODUCT_PACKAGES += \
 -    libvideoeditor_jni \
 -    libvideoeditor_core \
 -    libvideoeditor_osal \
 -    libvideoeditor_videofilters \
 -    libvideoeditorplayer
-+#PRODUCT_PACKAGES += \
-+#    libvideoeditor_jni \
-+#    libvideoeditor_core \
-+#    libvideoeditor_osal \
-+#    libvideoeditor_videofilters \
-+#    libvideoeditorplayer
  
  # Additional settings used in all AOSP builds
  PRODUCT_PROPERTY_OVERRIDES := \
-@@ -55,10 +55,10 @@ PRODUCT_LOCALES := en_US
+@@ -55,10 +40,10 @@ PRODUCT_LOCALES := en_US
  $(call inherit-product-if-exists, frameworks/base/data/sounds/NewAudio.mk)
  
  # Include video prebuilts
