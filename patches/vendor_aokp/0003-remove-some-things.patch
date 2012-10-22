@@ -1,19 +1,19 @@
-From ab8a28390f3a8eff809dbe11b3b1ecb65bd62899 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?D=C4=81vis=20M=C4=81lnieks?= <daavis.90@gmail.com>
-Date: Sat, 20 Oct 2012 21:54:03 +0300
-Subject: [PATCH 3/3] update configs
+From f7940b0f53264960a54ee2fb7d1c84970438ec89 Mon Sep 17 00:00:00 2001
+From: Davis Malnieks <daavis.90@gmail.com>
+Date: Mon, 22 Oct 2012 16:38:21 +0300
+Subject: [PATCH 3/3] remove some things
 
-Change-Id: Iba680cddfa0957cc33034bfea8826ed99b01af2c
+Change-Id: Ia608cada290fcac6c868637b4fb1a5388b277435
 ---
- configs/common.mk       |   14 +++++++-------
+ configs/common.mk       |   15 ++++++++-------
  configs/common_phone.mk |    2 +-
- 2 files changed, 8 insertions(+), 8 deletions(-)
+ 2 files changed, 9 insertions(+), 8 deletions(-)
 
 diff --git a/configs/common.mk b/configs/common.mk
-index edb77e4..df7df99 100644
+index 84a191c..20a0ee3 100644
 --- a/configs/common.mk
 +++ b/configs/common.mk
-@@ -10,16 +10,16 @@ PRODUCT_PACKAGES += \
+@@ -10,15 +10,16 @@ PRODUCT_PACKAGES += \
      AOKPtips \
      AppWidgetPicker \
      LatinImeDictionary \
@@ -22,10 +22,10 @@ index edb77e4..df7df99 100644
      MusicFX \
 -    MusicVisualization \
 -    NoiseField \
+-    PhaseBeam \
++    LiveWallpapersPicker \
 +#    MusicVisualization \
 +#    NoiseField \
-     openvpn \
--    PhaseBeam \
 +#    PhaseBeam \
      ROMControl \
      SuperSU \
@@ -36,7 +36,7 @@ index edb77e4..df7df99 100644
  
  # Use prebuilt su until fixed when built
  PRODUCT_COPY_FILES += \
-@@ -37,7 +37,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -36,7 +37,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.kernel.android.checkjni=0
  
  PRODUCT_COPY_FILES += \

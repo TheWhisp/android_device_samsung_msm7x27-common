@@ -1,5 +1,5 @@
 From 7ad1ae9f84f889f9263c378fae0919f28831bb0b Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?D=C4=81vis=20M=C4=81lnieks?= <daavis.90@gmail.com>
+From: Davis Malnieks <daavis.90@gmail.com>
 Date: Sun, 21 Oct 2012 00:09:05 +0300
 Subject: [PATCH] add ar6000 driver fix signal bars
 
