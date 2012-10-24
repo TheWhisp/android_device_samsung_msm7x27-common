@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+## GPS configuration
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+
 ## Media
 PRODUCT_PACKAGES += \
     libOmxCore \
@@ -34,8 +37,8 @@ PRODUCT_PACKAGES += \
 
 ## Camera
 PRODUCT_PACKAGES += \
-    libcamera \
-    camera.gio
+    LegacyCamera \
+    camera.gio 
 
 ## GPS
 PRODUCT_PACKAGES += \
@@ -43,24 +46,15 @@ PRODUCT_PACKAGES += \
   
 ## Other
 PRODUCT_PACKAGES += \
-    Stk \
     make_ext4fs \
     brcm_patchram_plus \
     bdaddr_read \
     setup_fs \
-    FileManager
+    FileManager  
 
 ## Vold config
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/vold.fstab:system/etc/vold.fstab
-
-## Ramdisk
-PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/fsr.ko:root/lib/modules/fsr.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
-    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko
 
 ## Hardware properties 
 PRODUCT_COPY_FILES += \
@@ -79,6 +73,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+## Ramdisk
+PRODUCT_COPY_FILES += \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/fsr.ko:root/lib/modules/fsr.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/fsr_stl.ko:root/lib/modules/fsr_stl.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/sec_param.ko:root/lib/modules/sec_param.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_fat.ko:root/lib/modules/rfs_fat.ko \
+    device/samsung/msm7x27-common/ramdisk/lib/modules/rfs_glue.ko:root/lib/modules/rfs_glue.ko
 
 ## Prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
@@ -116,10 +118,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
-## GPS configuration
+## ICS GPS blob
 PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/etc/gps.conf:system/etc/gps.conf
+    device/samsung/msm7x27-common/prebuilt/lib/hw/gps.msm7x27.so:system/lib/hw/gps.msm7x27.so
 
 ## Other
 PRODUCT_LOCALES += en
-PRODUCT_AAPT_CONFIG := ldpi mdpi hdpi normal
+PRODUCT_AAPT_CONFIG := ldpi mdpi normal
