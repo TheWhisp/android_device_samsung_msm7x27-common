@@ -257,20 +257,31 @@ static void wrap_data_callback_timestamp(nsecs_t timestamp, int32_t msg_type, co
 
 void CameraHAL_FixupParams(android::CameraParameters &camParams)
 {
-    const char *preferred_size = "640x480";
+    const char *video_sizes          = "640x480,384x288,352x288,320x240,240x160,176x144";
+    const char *preferred_size       = "320x240";
+    const char *preview_frame_rates  = "25,24,15";
 
     camParams.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT, CameraParameters::PIXEL_FORMAT_YUV420SP);
 
     camParams.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,  preferred_size);
 
+    camParams.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES, preview_frame_rates);
+
+    if (!camParams.get(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES)) {
+         camParams.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES, video_sizes);
+    }
+
     if (!camParams.get(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS)) {
         camParams.set(CameraParameters::KEY_MAX_NUM_FOCUS_AREAS, 1);
+    }
+
+    if (!camParams.get(CameraParameters::KEY_VIDEO_SIZE)) {
+         camParams.set(CameraParameters::KEY_VIDEO_SIZE, preferred_size);
     }
 
     camParams.set(CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, 4);
     camParams.set(CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, -4);
     camParams.set(CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, 1);
-
 }
 
 int camera_set_preview_window(struct camera_device * device, struct preview_stream_ops *window)
@@ -359,13 +370,15 @@ int camera_store_meta_data_in_buffers(struct camera_device * device, int enable)
 
 int camera_start_recording(struct camera_device * device)
 {
+    qCamera->enableMsgType(CAMERA_MSG_VIDEO_FRAME);
     return qCamera->startRecording();
 }
 
 void camera_stop_recording(struct camera_device * device)
 {
+    qCamera->disableMsgType(CAMERA_MSG_VIDEO_FRAME);
     qCamera->stopRecording();
-    qCamera->startPreview();
+    //qCamera->startPreview();
 }
 
 int camera_recording_enabled(struct camera_device * device)
