@@ -1,4 +1,4 @@
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2012 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,6 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+## Device common overlay
+DEVICE_PACKAGE_OVERLAYS := device/samsung/msm7x27-common/overlay
 
 ## Media
 PRODUCT_PACKAGES += \
@@ -31,10 +34,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
-
-## Camera
-PRODUCT_PACKAGES += \
-    libcamera
 
 ## GPS
 PRODUCT_PACKAGES += \
@@ -72,7 +71,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/base/data/etc/platform.xml:system/etc/permissions/platform.xml \
     frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
@@ -126,4 +124,4 @@ PRODUCT_COPY_FILES += \
 
 ## Other
 PRODUCT_LOCALES += en
-PRODUCT_AAPT_CONFIG := ldpi mdpi hdpi normal
+PRODUCT_AAPT_CONFIG := ldpi mdpi normal

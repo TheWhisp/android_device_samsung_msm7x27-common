@@ -1,4 +1,4 @@
-# Copyright (C) 2007 The Android Open Source Project
+# Copyright (C) 2012 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,7 +60,6 @@ BOARD_NEEDS_MEMORYHEAPPMEM := true
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/msm7x27-common/prebuilt/lib/egl/egl.cfg
 BOARD_USES_QCOM_LIBS := true
-TARGET_NO_HW_VSYNC := true
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_OMX
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
@@ -88,12 +87,8 @@ WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WLAN_DEVICE := wlan0
 WIFI_DRIVER_MODULE_PATH := /system/wifi/ar6000.ko
 WIFI_DRIVER_MODULE_NAME := ar6000
-BOARD_WLAN_CHIP_AR6003 := true
-BOARD_WLAN_ATHEROS_SDK := AR6kSDK.3.1/AR6kSDK.build_3.1_RC.xxx
 
 ## RIL
-TARGET_PROVIDES_LIBRIL := true
-BOARD_USES_LEGACY_RIL := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 
 ## UMS
@@ -128,3 +123,7 @@ BOARD_KERNEL_CMDLINE :=
 BOARD_BML_BOOT := "/dev/block/bml8"
 BOARD_BML_RECOVERY := "/dev/block/bml9"
 BOARD_RECOVERY_HANDLES_MOUNT := true
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/msm7x27-common/recovery/recovery_ui.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/msm7x27-common/recovery/graphics.c
+TARGET_RECOVERY_INITRC := device/samsung/msm7x27-common/recovery/recovery.rc
+TARGET_RECOVERY_FSTAB := device/samsung/msm7x27-common/recovery/recovery.fstab
