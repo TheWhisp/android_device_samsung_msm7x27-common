@@ -1,4 +1,4 @@
-import init.gt-s5570board.usb.rc
+#import init.gt-s5570board.usb.rc
 
 on init
     insmod /lib/modules/rfs_fat.ko
