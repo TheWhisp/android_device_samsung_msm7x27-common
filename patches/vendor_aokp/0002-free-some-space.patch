@@ -1,0 +1,56 @@
+From 0f25b3aa5fc2a6e04028628fba05dbfd539d6f3f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?D=C4=81vis=20M=C4=81lnieks?= <daavis.90@gmail.com>
+Date: Sat, 3 Nov 2012 11:56:57 +0200
+Subject: [PATCH] free some space
+
+Change-Id: I65d685430ce90d1fd131313a87cad667ad6cba91
+---
+ configs/common.mk       |    8 +-------
+ configs/common_phone.mk |    2 +-
+ 2 files changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/configs/common.mk b/configs/common.mk
+index 84a191c..64bc6a5 100644
+--- a/configs/common.mk
++++ b/configs/common.mk
+@@ -10,15 +10,10 @@ PRODUCT_PACKAGES += \
+     AOKPtips \
+     AppWidgetPicker \
+     LatinImeDictionary \
+-    Microbes \
+     MusicFX \
+-    MusicVisualization \
+-    NoiseField \
+-    PhaseBeam \
+     ROMControl \
+     SuperSU \
+-    SwagPapers \
+-    UnicornPorn
++    SwagPapers
+ 
+ # Use prebuilt su until fixed when built
+ PRODUCT_COPY_FILES += \
+@@ -36,7 +31,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.kernel.android.checkjni=0
+ 
+ PRODUCT_COPY_FILES += \
+-    vendor/aokp/prebuilt/common/lib/libmicrobes_jni.so:system/lib/libmicrobes_jni.so \
+     vendor/aokp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
+     vendor/aokp/prebuilt/common/etc/resolv.conf:system/etc/resolv.conf
+ 
+diff --git a/configs/common_phone.mk b/configs/common_phone.mk
+index 98e9f54..42fd429 100644
+--- a/configs/common_phone.mk
++++ b/configs/common_phone.mk
+@@ -5,7 +5,7 @@ PRODUCT_PACKAGES += \
+     Torch
+ 
+ # Inherit drm blobs
+--include vendor/aokp/configs/common_drm_phone.mk
++#-include vendor/aokp/configs/common_drm_phone.mk
+ 
+ # BT config
+ PRODUCT_COPY_FILES += \
+-- 
+1.7.10.4
+
