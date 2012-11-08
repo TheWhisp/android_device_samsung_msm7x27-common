@@ -85,10 +85,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/init.d/01bt:system/etc/init.d/01bt \
     device/samsung/msm7x27-common/prebuilt/etc/init.d/02compcache:system/etc/init.d/02compcache
 
-## Prebuilt file manager
-PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/app/FileManager.apk:system/app/FileManager.apk
-
 ## Wi-Fi & networking
 PRODUCT_COPY_FILES += \
     device/samsung/msm7x27-common/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
