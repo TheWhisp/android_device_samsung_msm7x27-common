@@ -16,3 +16,11 @@ cd bionic
 echo "Applying bionic patches..."
 git am $rootdirectory/device/samsung/msm7x27-common/patches/bionic/*.patch
 cd $rootdirectory
+cd system/netd
+echo "Applying system/netd patches..."
+git am $rootdirectory/device/samsung/msm7x27-common/patches/system_netd/*.patch
+cd $rootdirectory
+cd hardware/libhardware_legacy
+echo "Applying hardware/libhardware_legacy patches..."
+git am $rootdirectory/device/samsung/msm7x27-common/patches/libhardware_legacy/*.patch
+cd $rootdirectory
