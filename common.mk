@@ -82,8 +82,7 @@ PRODUCT_COPY_FILES += \
 
 ## Prebuilt init.d scripts
 PRODUCT_COPY_FILES += \
-    device/samsung/msm7x27-common/prebuilt/etc/init.d/01bt:system/etc/init.d/01bt \
-    device/samsung/msm7x27-common/prebuilt/etc/init.d/02compcache:system/etc/init.d/02compcache
+    device/samsung/msm7x27-common/prebuilt/etc/init.d/01bt:system/etc/init.d/01bt
 
 ## Wi-Fi & networking
 PRODUCT_COPY_FILES += \

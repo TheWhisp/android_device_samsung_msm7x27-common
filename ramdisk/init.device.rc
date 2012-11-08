@@ -1,3 +1,4 @@
+import init.local.rc
 #import init.gt-s5570board.usb.rc
 
 on init
