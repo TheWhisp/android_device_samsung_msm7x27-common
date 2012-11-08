@@ -6,14 +6,14 @@ import init.gt-s5570board.usb.rc
 import init.gt-s5830board.usb.rc
 
 on init
-    insmod /lib/modules/rfs_fat.ko
-    insmod /lib/modules/rfs_glue.ko
+    #insmod /lib/modules/rfs_fat.ko
+    #insmod /lib/modules/rfs_glue.ko
     insmod /lib/modules/fsr.ko
     insmod /lib/modules/fsr_stl.ko
     insmod /lib/modules/sec_param.ko
 
 on early-init
-  
+
    export EXTERNAL_STORAGE /mnt/sdcard
    mkdir /mnt/sdcard 0000 system system
    # for backwards compatibility
@@ -41,11 +41,12 @@ on fs
     write /sys/devices/virtual/block/stl14/queue/read_ahead_kb 4
 
 on boot
+
 # Systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 # Increase read throughput from sd card
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 4096
+    #write /sys/block/mmcblk0/bdi/read_ahead_kb 4096
 
 # cpufreq configurations
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
@@ -141,50 +142,61 @@ on property:persist.service.adb.enable=1
 on property:persist.service.adb.enable=0
     stop adbd
 
-service dhcp-service /system/bin/netcfg wlan0 dhcp
-    oneshot
-
-on property:dev.bootcomplete=1
-    stop dhcp-service
-    start dhcp-service
-
 on property:init.svc.wpa_supplicant=stopped
-    stop dhcpcd
-    
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dar6000 -iwlan0 -W -c/data/misc/wifi/wpa_supplicant.conf
+    stop dhcpcd_wlan0
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     class main
     group wifi inet
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
-service dhcpcd_wlan0 /system/bin/dhcpcd -BKL
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
     disabled
     oneshot
 
 service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
+    class main
     socket hostapd_athap0 dgram 660 wifi wifi
     group wifi inet
     oneshot
     disabled
 
 service qmuxd /system/bin/qmuxd
+    class main
     user radio
     group system radio inet
+    disabled
 
 service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --baudrate 3000000 --patchram /system/etc/firmware/BCM2049C0_003.001.031.0088.0094.hcd /dev/ttyHS0
+    class main
     user bluetooth
     group bluetooth net_bt_admin
     disabled
     oneshot
 
 service bdaddr_read /system/bin/bdaddr_read
+    class main
     user root
     disabled
     oneshot
-
-on property:init.svc.bootanim=running
-    start bdaddr_read
 
 service gps-daemon /system/bin/gpsd
     user system
@@ -196,8 +208,9 @@ service memsicd /system/bin/memsicd
     group root
     oneshot	
 
-# From init.gt-i5500.rc by subpsyke
+# From init.gt-i5500.rc by psyke83
 service get_macaddrs /system/bin/get_macaddrs
+    class main
     user root
     oneshot
     disabled
@@ -206,7 +219,9 @@ on property:init.svc.ril-daemon=running
     start get_macaddrs
 
 service setup_fs /system/bin/setup_fs /dev/block/stl13 /dev/block/stl14
+    class main
     user root
     group root
     oneshot
     disabled
+
