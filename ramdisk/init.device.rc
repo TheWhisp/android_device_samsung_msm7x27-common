@@ -1,5 +1,9 @@
 import init.local.rc
-#import init.gt-s5570board.usb.rc
+import init.gt-i5500board.usb.rc
+import init.gt-s5660board.usb.rc
+import init.gt-s5670board.usb.rc
+import init.gt-s5570board.usb.rc
+import init.gt-s5830board.usb.rc
 
 on init
     insmod /lib/modules/rfs_fat.ko
