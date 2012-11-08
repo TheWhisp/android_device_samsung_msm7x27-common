@@ -2,15 +2,17 @@ Samsung msm7x27-common device source / configuration for building Android 4.0
 
 ## Currently supports:
 
-* Galaxy Mini (GT-S5570)
-* Galaxy Gio (GT-S5660)
-* Galaxy Ace (GT-S5830)
-* Galaxy Fit (GT-S5670)
+* Galaxy Mini (tass, GT-S5570)
+* Galaxy Gio (gio, GT-S5660)
+* Galaxy Ace (cooper, GT-S5830)
+* Galaxy Fit (fit, GT-S5670)
+* Galaxy 5 (europa, GT-I5500)
 
 People who made this possible:
 
 * TheWhisp
 * rohan007
+* psyke83
 * michie
 * hrk
 * erikcas
@@ -18,6 +20,5 @@ People who made this possible:
 * KonstaT
 * CyanogenMod team
 
-Maintainer        : TheWhisp
 More information  : http://forum.xda-developers.com/showthread.php?t=1793511
 
