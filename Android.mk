@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-SAMSUNG_TARGETS := tass beni cooper gio
+SAMSUNG_TARGETS := tass beni cooper gio galaxy5
 
 ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
 include $(all-subdir-makefiles)
