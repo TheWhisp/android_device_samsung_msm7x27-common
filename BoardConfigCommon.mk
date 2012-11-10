@@ -129,6 +129,5 @@ BOARD_BML_BOOT := "/dev/block/bml8"
 BOARD_BML_RECOVERY := "/dev/block/bml9"
 BOARD_RECOVERY_HANDLES_MOUNT := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/msm7x27-common/recovery/recovery_ui.c
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/msm7x27-common/recovery/graphics.c
 TARGET_RECOVERY_INITRC := device/samsung/msm7x27-common/recovery/recovery.rc
 TARGET_RECOVERY_FSTAB := device/samsung/msm7x27-common/recovery/recovery.fstab
